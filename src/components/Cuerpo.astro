@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import TarjetaProyectos from "./TarjetaProyectos.astro";
+import { getCollection } from "astro:content";
+
+const TodosLosProyectos = await getCollection("proyectos");
 ---
 
 <div class="space-y-6 container mx-auto text-center items-center">
@@ -96,4 +100,74 @@ import "../styles/global.css";
             Proyectos Personales
         </h2>
     </div>
+
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                TodosLosProyectos.map((proyecto: any) => (
+                    <div class="flex h-full">
+                        <TarjetaProyectos
+                            titulo={proyecto.data.titulo}
+                            descripcion={proyecto.data.descripcion}
+                            imagen={proyecto.data.imagen}
+                            urlRepositorio={proyecto.data.urlRepositorio}
+                            etiquetas={proyecto.data.etiquetas}
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <section id="contacto" class="border-t border-slate-200 py-16 bg-slate-50">
+        <div class="max-row mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">
+                Datos de contacto.
+            </h3>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            >
+                <a
+                    href="https://www.linkedin.com/in/edinson-amaya-ariza-47a1ab27a/"
+                    class="flex items-center justify-center gap-3 p-4 bg-white border-2 border-slate-200 rounded-xl hover:border-blue-600 hover:shadow-lg transition-all group"
+                >
+                    <span
+                        class="font-semibold text-slate-700 group-hover:text-blue-600"
+                        >LinkedIn</span
+                    >
+                </a>
+
+                <a
+                    href="https://github.com/EdinsonAmaya"
+                    class="flex items-center justify-center gap-3 p-4 bg-white border-2 border-slate-200 rounded-xl hover:border-black hover:shadow-lg transition-all group"
+                >
+                    <span
+                        class="font-semibold text-slate-700 group-hover:text-black"
+                        >GitHub</span
+                    >
+                </a>
+
+                <a
+                    href="mailto:edinsonamaya31@gmail.com"
+                    class="flex items-center justify-center gap-3 p-4 bg-white border-2 border-slate-200 rounded-xl hover:border-red-500 hover:shadow-lg transition-all group"
+                >
+                    <span
+                        class="font-semibold text-slate-700 group-hover:text-red-500"
+                        >Email Profesional</span
+                    >
+                </a>
+            </div>
+
+            <div class="mt-12">
+                <a
+                    href="CV Edinson Amaya - Ing. Sistemas.pdf"
+                    download
+                    class="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-colors"
+                >
+                    Descargar CV (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
 </div>

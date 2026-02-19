@@ -1,0 +1,23 @@
+---
+const { titulo, descripcion, imagen, urlRepositorio, etiquetas } = Astro.props;
+
+import "../styles/tarjeta.css";
+---
+
+<div class="container m-16 py-2 shadow-lg border border-gray-200">
+    <div class="card-container">
+        <div class="descripcion">
+            <p class="font-bold text-lg py-2">{titulo}</p>
+            <div class="image">
+                <img src={imagen} alt="" class="border border-gray-200" />
+            </div>
+            <p class="text-gray-600 p-4">{descripcion}</p>
+            <div class="icons">
+                <a href={urlRepositorio} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade"> GitHub </span>
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
