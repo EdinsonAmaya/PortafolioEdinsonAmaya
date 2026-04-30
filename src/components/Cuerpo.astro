@@ -6,71 +6,105 @@ import SobreMi from "./SobreMi.astro";
 import Contacto from "./Contacto.astro";
 import Stack from "./Stack.astro";
 import Experiencia from "./Experiencia.astro";
+import { Icon } from "astro-icon/components";
 
 const TodosLosProyectos = await getCollection("proyectos");
 ---
 
-<div
-    class="space-y-6 container mx-auto text-center items-center justify-center text-center"
->
-    <div
-        class="container flex flex-col md:flex-row justify-center items-stretch mx-auto gap-8 my-2 px-4 border-b border-gray-200"
-    >
-        <div
-            class="w-full md:w-1/3 bg-white rounded-lg flex flex-col justify-center items-center text-center p-6 mx-auto"
-        >
-            <p class="bungee-regular text-3xl lg:text-4xl leading-tight mb-2">
-                Edinson Arley Amaya Ariza
-            </p>
-            <h1 class="bungee-regular text-xl text-blue-600 leading-tight">
-                Ingeniero De Sistemas | Full Stack Developer.
-            </h1>
-        </div>
+<div class="container mx-auto items-center justify-center space-y-6 text-center">
+	<div
+		class="container mx-auto my-2 flex flex-col items-stretch justify-center gap-8 border-b border-gray-200 px-4"
+	>
+		<div
+			class="mx-auto flex w-full flex-col items-center justify-center rounded-lg bg-white p-2 text-center md:w-1/3"
+		>
+			<p
+				class="bungee-regular mb-3 text-5xl text-white drop-shadow-[0_0_15px_rgba(37,99,235,0.6)] lg:text-6xl"
+			>
+				Edinson Arley Amaya Ariza
+			</p>
+			<h1
+				class="inline-block rounded-full border border-blue-500/20 bg-blue-950/30 px-4 py-1 font-mono text-5xl text-blue-300/80 md:text-base"
+			>
+				Ingeniero De Sistemas | Full Stack Developer.
+			</h1>
+			<div class="mt-4 flex items-center justify-center gap-3">
+				<div class="mt-4 inline-block">
+					<a
+						href="https://www.linkedin.com/in/edinson-amaya-ariza-47a1ab27a/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group flex items-center justify-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-6 py-2 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-md"
+					>
+						<i
+							class="devicon-linkedin-plain colored text-2xl transition-transform group-hover:scale-110"
+						></i>
 
-        <SobreMi />
+						<span class="font-semibold text-slate-700 group-hover:text-blue-600"> LinkedIn </span>
+					</a>
+				</div>
+				<div class="mt-4 inline-block">
+					<a
+						href="https://github.com/edinsonamayaariza"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group flex items-center justify-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-6 py-2 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-md"
+					>
+						<i
+							class="devicon-github-original colored text-2xl transition-transform group-hover:scale-110"
+						></i>
 
-    </div>
+						<span class="font-semibold text-slate-700 group-hover:text-blue-600"> GitHub </span>
+					</a>
+				</div>
+				<div class="mt-4 inline-block">
+					<a
+						href="/CV_Edinson_Amaya_Ing_Sistemas.pdf"
+						download="CV_Edinson_Amaya_Ing_Sistemas.pdf"
+						rel="noopener noreferrer"
+						class="group flex items-center justify-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-6 py-2 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:shadow-md"
+					>
+						<Icon name="ph:file-text-bold" class="text-2xl text-black" />
+						<span class="font-semibold text-slate-700 group-hover:text-blue-600"> CV </span>
+					</a>
+				</div>
+			</div>
+		</div>
 
-    <div
-        class="container flex flex-col md:flex-row items-stretch mx-auto gap-8"
-    >
-        <Contacto />
+		<SobreMi />
+	</div>
 
-        <div class="md:w-5/6 bg-white rounded-lg flex flex-col text-center p-8">
-            
-            <Stack />
+	<div class="">
+		<div class="flex flex-col rounded-lg bg-white p-8 text-center">
+			<Stack />
 
-            <Experiencia />
+			<Experiencia />
 
-            <div>
-                <p
-                    class="bungee-regular text-xl md:text-2xl text-blue-400 uppercase tracking-widest font-semibold mb-8"
-                >
-                    Proyectos Personales
-                </p>
-            </div>
+			<div>
+				<p
+					class="bungee-regular mb-8 text-xl font-semibold tracking-widest text-blue-400 uppercase md:text-2xl"
+				>
+					Proyectos Personales
+				</p>
+			</div>
 
-            <div class="max-w-7xl mx-auto px-4">
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                    {
-                        TodosLosProyectos.map((proyecto: any) => (
-                            <div class="flex h-full">
-                                <TarjetaProyectos
-                                    titulo={proyecto.data.titulo}
-                                    descripcion={proyecto.data.descripcion}
-                                    imagen={proyecto.data.imagen}
-                                    urlRepositorio={
-                                        proyecto.data.urlRepositorio
-                                    }
-                                    etiquetas={proyecto.data.etiquetas}
-                                />
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
+			<div class="mx-auto max-w-7xl px-4">
+				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{
+						TodosLosProyectos.map((proyecto: any) => (
+							<div class="flex h-full">
+								<TarjetaProyectos
+									titulo={proyecto.data.titulo}
+									descripcion={proyecto.data.descripcion}
+									imagen={proyecto.data.imagen}
+									urlRepositorio={proyecto.data.urlRepositorio}
+									etiquetas={proyecto.data.etiquetas}
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
