@@ -1,3 +1,7 @@
+---
+import Footer from "../components/Footer.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,17 +10,18 @@
 		<meta name="generator" content={Astro.generator} />
 		<link
 			rel="stylesheet"
-			type="text/css"
 			href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-			<link
+		/>
+		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 		/>
-		/>
+		<link rel="shortcut icon" href="/ea-icon.png" type="image/ea-icon" />
 		<title>Edinson Amaya | Full Stack Developer</title>
 	</head>
 	<body>
 		<slot />
+		<Footer />
 	</body>
 </html>
 

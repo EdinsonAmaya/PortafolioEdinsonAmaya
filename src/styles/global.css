@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-body {
+body,
+img {
 	background:
 		radial-gradient(
 			70% 55% at 50% 50%,

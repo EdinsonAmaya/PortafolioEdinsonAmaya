@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer
+	class="mt-12 border-t border-slate-700/70 bg-slate-950/90 px-4 py-8 text-slate-300 shadow-[0_-10px_30px_rgba(15,23,42,0.35)] backdrop-blur-xl"
+>
+	<div
+		class="container mx-auto flex flex-col gap-6 text-center sm:flex-col sm:items-center sm:justify-between"
+	>
+		<div class="space-y-2">
+			<p class="text-lg font-semibold text-white">Edinson Arley Amaya Ariza</p>
+			<p class="text-sm text-slate-400">Ingeniero de Sistemas | Full Stack Developer</p>
+		</div>
+		<div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+			<a
+				href="https://www.linkedin.com/in/edinson-amaya-ariza-47a1ab27a/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group flex items-center justify-center rounded-full border border-slate-700/90 bg-slate-950/90 px-4 py-1 text-slate-200 transition duration-300 hover:border-blue-500 hover:text-white"
+			>
+				<i class="devicon-linkedin-plain text-xl group-hover:text-blue-500"></i>
+			</a>
+			<a
+				href="https://github.com/edinsonamayaariza"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group flex items-center justify-center rounded-full border border-slate-700/90 bg-slate-950/90 px-4 py-1 text-slate-200 transition duration-300 hover:border-blue-500 hover:text-white"
+			>
+				<i class="devicon-github-original text-xl group-hover:text-blue-500"></i>
+			</a>
+			<a
+				href="/CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				download="CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				class="group flex items-center justify-center rounded-full border border-slate-700/90 bg-slate-950/90 px-4 py-1 text-slate-200 transition duration-300 hover:border-blue-500 hover:text-blue-500"
+			>
+				<Icon name="ph:file-text-bold" class="text-xl text-white group-hover:text-blue-500" />
+			</a>
+		</div>
+
+		<p class="text-center text-xs text-slate-500 sm:text-right">
+			© 2026 Edinson Amaya. Disponible para colaboraciones, proyectos freelance y oportunidades
+			remotas.
+		</p>
+	</div>
+</footer>
