@@ -1,48 +1,46 @@
-<div
-                class="container flex flex-col md:flex-row justify-center items-center mx-auto text-cencontainer flex flex-col md:flex-row justify-center items-center mx-auto text-center md:space-x-8"
-            >
-                <div
-                    class="md:w-2/3 bg-white rounded-lg mx-auto items-center text-center"
-                >
-                    <p
-                        class="bungee-regular text-xl md:text-2xl text-blue-400 uppercase tracking-widest font-semibold"
-                    >
-                        Core Stack & Especialidades.
-                    </p>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-                        Conocimientos en desarrollo integral con dominio en Java
-                        y Python para arquitecturas de Backend. Integro
-                        interfaces dinámicas y fluidas utilizando la agilidad de
-                        JavaScript en el Frontend. Mi trabajo se fundamenta en
-                        la implementación de Arquitecturas Limpias (Clean
-                        Architecture) y el diseño de bases de datos sólidas,
-                        asegurando sistemas mantenibles y de alto rendimiento.
-                    </p>
+---
+const tecnologias = [
+	{ nombre: "Python", rol: "Backend y datos", icono: "devicon-python-plain colored" },
+	{ nombre: "Java", rol: "Backend", icono: "devicon-java-plain colored" },
+	{ nombre: "Spring Boot", rol: "APIs REST", icono: "devicon-spring-plain colored" },
+	{ nombre: "JavaScript", rol: "Frontend", icono: "devicon-javascript-plain colored" },
+	{ nombre: "Azure SQL", rol: "Bases de datos", icono: "devicon-azuresqldatabase-plain colored" },
+	{ nombre: "Postman", rol: "Testing de APIs", icono: "devicon-postman-plain colored" },
+	{ nombre: "GitHub", rol: "Versionamiento", icono: "devicon-github-original colored" },
+];
+---
 
-                    <div
-                        class="flex flex-wrap gap-4 justify-center items-center mx-auto my-6"
-                    >
-                        <i
-                            class="devicon-python-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-java-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-postman-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-javascript-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-github-plain text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-azuresqldatabase-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                        <i
-                            class="devicon-spring-plain colored text-6xl hover:scale-110 transition-transform"
-                        ></i>
-                    </div>
-                </div>
-            </div>
+<section id="stack" class="section border-line/70 border-t">
+	<div class="container-page">
+		<div class="reveal max-w-2xl">
+			<p class="eyebrow">Stack</p>
+			<h2 class="text-ink mt-4 text-3xl font-semibold sm:text-4xl">Core stack & especialidades</h2>
+			<p class="text-muted mt-4 leading-relaxed">
+				Desarrollo integral con dominio de Java y Python para arquitecturas de backend, interfaces
+				dinámicas con JavaScript y bases de datos sólidas. Mi trabajo se apoya en Clean Architecture
+				para construir sistemas mantenibles y de alto rendimiento.
+			</p>
+		</div>
+
+		<ul class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				tecnologias.map((tecnologia, index) => (
+					<li
+						class="card hover:border-accent/40 hover:bg-surface-2/70 group reveal flex items-center gap-3 p-4 hover:-translate-y-0.5"
+						style={`--reveal-delay: ${index * 50}ms`}
+					>
+						<span class="bg-base/60 border-line flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border">
+							<i
+								class={`${tecnologia.icono} text-2xl transition-transform group-hover:scale-110`}
+							/>
+						</span>
+						<span>
+							<span class="text-ink block text-sm font-semibold">{tecnologia.nombre}</span>
+							<span class="text-subtle block text-xs">{tecnologia.rol}</span>
+						</span>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

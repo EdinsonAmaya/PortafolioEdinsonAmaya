@@ -1,0 +1,151 @@
+---
+import { Icon } from "astro-icon/components";
+
+const enlaces = [
+	{ href: "#sobre-mi", label: "Sobre mí" },
+	{ href: "#stack", label: "Stack" },
+	{ href: "#experiencia", label: "Experiencia" },
+	{ href: "#proyectos", label: "Proyectos" },
+	{ href: "#contacto", label: "Contacto" },
+];
+---
+
+<header
+	class="border-line/70 bg-base/80 supports-[backdrop-filter]:bg-base/60 sticky top-0 z-50 border-b backdrop-blur-xl"
+>
+	<div class="container-page flex h-16 items-center justify-between gap-4">
+		<a href="#inicio" class="group flex items-center gap-3" aria-label="Ir al inicio">
+			<img src="/Logo.svg" alt="" class="h-8 w-8 transition-transform group-hover:scale-105" />
+			<span class="font-display text-ink text-sm font-semibold tracking-tight">
+				Edinson Amaya
+			</span>
+		</a>
+
+		<nav class="hidden items-center gap-1 md:flex" aria-label="Navegación principal">
+			{
+				enlaces.map((enlace) => (
+					<a
+						href={enlace.href}
+						data-nav-link
+						class="text-muted hover:text-ink rounded-full px-3 py-2 text-sm font-medium transition-colors aria-[current=page]:bg-white/5 aria-[current=page]:text-white"
+					>
+						{enlace.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="flex items-center gap-2">
+			<a
+				href="/CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				download="CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				class="btn btn-ghost hidden sm:inline-flex"
+			>
+				<Icon name="ph:download-simple-bold" class="text-base" />
+				CV
+			</a>
+
+			<button
+				type="button"
+				data-menu-toggle
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+				aria-label="Abrir menú"
+				class="border-line-strong text-ink hover:border-accent/60 inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors md:hidden"
+			>
+				<Icon name="ph:list-bold" class="text-xl" data-menu-icon="open" />
+				<Icon name="ph:x-bold" class="hidden text-xl" data-menu-icon="close" />
+			</button>
+		</div>
+	</div>
+
+	<div id="mobile-menu" class="border-line/70 bg-base/95 hidden border-t md:hidden">
+		<nav class="container-page flex flex-col gap-1 py-4" aria-label="Navegación móvil">
+			{
+				enlaces.map((enlace) => (
+					<a
+						href={enlace.href}
+						data-nav-link
+						class="text-muted hover:text-ink rounded-xl px-3 py-2.5 text-sm font-medium transition-colors aria-[current=page]:bg-white/5 aria-[current=page]:text-white"
+					>
+						{enlace.label}
+					</a>
+				))
+			}
+			<a
+				href="/CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				download="CV_Edinson_Amaya_Ing_Sistemas.pdf"
+				class="btn btn-primary mt-2"
+			>
+				<Icon name="ph:download-simple-bold" class="text-base" />
+				Descargar CV
+			</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+	const menu = document.getElementById("mobile-menu");
+	const openIcon = document.querySelector<HTMLElement>('[data-menu-icon="open"]');
+	const closeIcon = document.querySelector<HTMLElement>('[data-menu-icon="close"]');
+
+	const setMenu = (open: boolean) => {
+		if (!toggle || !menu) return;
+		toggle.setAttribute("aria-expanded", String(open));
+		toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+		menu.classList.toggle("hidden", !open);
+		openIcon?.classList.toggle("hidden", open);
+		closeIcon?.classList.toggle("hidden", !open);
+	};
+
+	toggle?.addEventListener("click", () => {
+		const isOpen = toggle.getAttribute("aria-expanded") === "true";
+		setMenu(!isOpen);
+	});
+
+	menu?.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", () => setMenu(false));
+	});
+
+	const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"));
+	const sections = links
+		.map((link) => link.getAttribute("href"))
+		.filter((href): href is string => Boolean(href?.startsWith("#")))
+		.map((href) => document.querySelector<HTMLElement>(href))
+		.filter((section): section is HTMLElement => Boolean(section));
+
+	const setActive = (id: string) => {
+		for (const link of links) {
+			if (link.getAttribute("href") === `#${id}`) {
+				link.setAttribute("aria-current", "page");
+			} else {
+				link.removeAttribute("aria-current");
+			}
+		}
+	};
+
+	const updateActive = () => {
+		let current = "inicio";
+		for (const section of sections) {
+			if (section.getBoundingClientRect().top <= 140) {
+				current = section.id;
+			}
+		}
+		setActive(current);
+	};
+
+	let ticking = false;
+
+	const handleScroll = () => {
+		if (ticking) return;
+		ticking = true;
+		requestAnimationFrame(() => {
+			updateActive();
+			ticking = false;
+		});
+	};
+
+	document.addEventListener("scroll", handleScroll, { passive: true });
+	updateActive();
+</script>

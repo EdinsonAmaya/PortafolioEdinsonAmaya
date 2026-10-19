@@ -1,21 +1,63 @@
-<div
-                class="container flex flex-col md:flex-row mx-auto text-center md:space-x-8"
-            >
-                <div class="bg-white rounded-lg mx-auto text-center py-8">
-                    <p
-                        class="bungee-regular text-xl md:text-2xl text-blue-400 uppercase tracking-widest font-semibold"
-                    >
-                        Experiencia.
-                    </p>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        A lo largo de mi formación profesional, he liderado y
-                        desarrollado diversos proyectos técnicos donde he
-                        aplicado metodologías ágiles y patrones de diseño
-                        avanzados. Mi experiencia práctica se traduce en la
-                        capacidad de transformar requerimientos complejos en
-                        aplicaciones funcionales, gestionando el ciclo de vida
-                        completo del desarrollo y garantizando la estabilidad de
-                        los sistemas implementados.
-                    </p>
-                </div>
-            </div>
+---
+import { Icon } from "astro-icon/components";
+
+const pilares = [
+	{
+		icono: "ph:database-bold",
+		titulo: "Desarrollo backend",
+		descripcion:
+			"APIs REST con Java y Spring Boot, persistencia con JPA/Hibernate, validación de datos y manejo consistente de errores.",
+	},
+	{
+		icono: "ph:layout-bold",
+		titulo: "Interfaces y experiencia",
+		descripcion:
+			"Frontends con JavaScript, Astro y TypeScript, priorizando claridad, accesibilidad y buen rendimiento.",
+	},
+	{
+		icono: "ph:git-branch-bold",
+		titulo: "Arquitectura y calidad",
+		descripcion:
+			"Clean Architecture, metodologías ágiles y pruebas de APIs para entregar sistemas estables y mantenibles.",
+	},
+];
+---
+
+<section id="experiencia" class="section border-line/70 border-t">
+	<div class="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+		<div class="reveal lg:sticky lg:top-24 lg:self-start">
+			<p class="eyebrow">Experiencia</p>
+			<h2 class="text-ink mt-4 text-3xl font-semibold sm:text-4xl">
+				Del requerimiento al sistema en producción
+			</h2>
+			<p class="text-muted mt-4 leading-relaxed">
+				He liderado y desarrollado proyectos técnicos aplicando metodologías ágiles y patrones de
+				diseño avanzados, gestionando el ciclo de vida completo del desarrollo y garantizando la
+				estabilidad de lo implementado.
+			</p>
+		</div>
+
+		<ol class="border-line relative space-y-6 border-l pl-6 sm:pl-8">
+			{
+				pilares.map((pilar, index) => (
+					<li class="reveal relative" style={`--reveal-delay: ${index * 80}ms`}>
+						<span class="bg-base border-accent/40 absolute top-6 -left-[calc(1.5rem+5px)] flex h-2.5 w-2.5 items-center justify-center rounded-full border sm:-left-[calc(2rem+5px)]">
+							<span class="bg-accent h-1 w-1 rounded-full" />
+						</span>
+						<div class="card hover:border-accent/30 p-5 sm:p-6">
+							<div class="flex items-start gap-4">
+								<span class="bg-accent/10 text-accent flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
+									<Icon name={pilar.icono} class="text-xl" />
+								</span>
+								<div>
+									<h3 class="text-ink text-base font-semibold">{pilar.titulo}</h3>
+									<p class="text-muted mt-1.5 text-sm leading-relaxed">{pilar.descripcion}</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>

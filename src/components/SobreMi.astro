@@ -1,16 +1,39 @@
-<div
-	class="mx-auto flex w-full flex-col items-center justify-center rounded-lg bg-white p-2 text-center"
->
-	<p
-		class="bungee-regular text-xl font-semibold tracking-widest text-blue-400 uppercase md:text-2xl"
-	>
-		Sobre mí.
-	</p>
-	<p class="mt-4 mb-8 max-w-xl text-center text-lg leading-relaxed text-gray-600">
-		Ingeniero de Sistemas apasionado por el desarrollo de software de alto impacto y la arquitectura
-		de sistemas. Mi enfoque se centra en la creación de soluciones eficientes y escalables,
-		combinando una sólida base técnica con una mentalidad de aprendizaje continuo y adaptabilidad
-		tecnológica. Estoy comprometido con la implementación de mejores prácticas y la entrega de
-		código de calidad que aporte valor real al negocio.
-	</p>
-</div>
+---
+import { Icon } from "astro-icon/components";
+
+const principios = ["Arquitectura limpia", "Código mantenible", "Aprendizaje continuo"];
+---
+
+<section id="sobre-mi" class="section border-line/70 border-t">
+	<div class="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+		<div class="reveal">
+			<p class="eyebrow">Sobre mí</p>
+			<h2 class="text-ink mt-4 text-3xl font-semibold sm:text-4xl">
+				Ingeniería con criterio de producto
+			</h2>
+		</div>
+
+		<div class="reveal space-y-6" style="--reveal-delay: 100ms">
+			<p class="text-muted text-lg leading-relaxed">
+				Soy Ingeniero de Sistemas y me enfoco en el desarrollo de software de alto impacto y en el
+				diseño de arquitecturas que puedan crecer sin convertirse en un problema. Combino una base
+				técnica sólida con una mentalidad de aprendizaje continuo.
+			</p>
+			<p class="text-muted leading-relaxed">
+				Me interesa transformar requerimientos complejos en soluciones eficientes, aplicando buenas
+				prácticas y entregando código de calidad que aporte valor real al negocio.
+			</p>
+
+			<ul class="grid gap-3 sm:grid-cols-3">
+				{
+					principios.map((principio) => (
+						<li class="card flex items-center gap-2.5 p-4">
+							<Icon name="ph:check-circle-bold" class="text-accent shrink-0 text-lg" />
+							<span class="text-ink/90 text-sm font-medium">{principio}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</section>

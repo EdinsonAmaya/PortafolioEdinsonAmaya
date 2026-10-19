@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="inicio" class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28">
+	<div class="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+		<div class="reveal">
+			<span
+				class="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300"
+			>
+				<span class="relative flex h-2 w-2">
+					<span
+						class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+					></span>
+					<span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+				</span>
+				Disponible para nuevos proyectos
+			</span>
+
+			<h1 class="text-ink mt-6 text-4xl leading-[1.05] font-semibold sm:text-5xl lg:text-6xl">
+				Edinson Arley<br />
+				<span class="text-accent">Amaya Ariza</span>
+			</h1>
+
+			<p class="text-ink/90 mt-5 text-lg font-medium sm:text-xl">
+				Ingeniero de Sistemas · Full Stack Developer
+			</p>
+
+			<p class="text-muted mt-4 max-w-xl text-base leading-relaxed">
+				Construyo aplicaciones mantenibles y escalables, con especial énfasis en backend con Java y
+				Python, arquitecturas limpias y bases de datos bien diseñadas.
+			</p>
+
+			<div class="mt-8 flex flex-wrap items-center gap-3">
+				<a href="#proyectos" class="btn btn-primary">
+					Ver proyectos
+					<Icon name="ph:arrow-right-bold" class="text-base" />
+				</a>
+				<a
+					href="/CV_Edinson_Amaya_Ing_Sistemas.pdf"
+					download="CV_Edinson_Amaya_Ing_Sistemas.pdf"
+					class="btn btn-ghost"
+				>
+					<Icon name="ph:download-simple-bold" class="text-base" />
+					Descargar CV
+				</a>
+			</div>
+
+			<div class="border-line mt-10 flex items-center gap-5 border-t pt-6">
+				<span class="text-subtle text-xs font-semibold tracking-[0.18em] uppercase">
+					Encontrame en
+				</span>
+				<a
+					href="https://www.linkedin.com/in/edinson-amaya-ariza-47a1ab27a/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-muted hover:text-accent inline-flex items-center gap-2 text-sm font-medium transition-colors"
+				>
+					<Icon name="ph:linkedin-logo-bold" class="text-lg" />
+					LinkedIn
+				</a>
+				<a
+					href="https://github.com/EdinsonAmaya"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-muted hover:text-accent inline-flex items-center gap-2 text-sm font-medium transition-colors"
+				>
+					<Icon name="ph:github-logo-bold" class="text-lg" />
+					GitHub
+				</a>
+			</div>
+		</div>
+
+		<div class="reveal relative mx-auto w-full max-w-sm" style="--reveal-delay: 120ms">
+			<div class="bg-accent/20 absolute -inset-6 -z-10 rounded-full blur-3xl" aria-hidden="true">
+			</div>
+
+			<div
+				class="surface relative rounded-3xl border-white/10 bg-white/[0.03] p-8 shadow-[0_30px_80px_-40px_rgba(2,6,23,0.9)] backdrop-blur-xl"
+			>
+				<div class="flex flex-col items-center text-center">
+					<img src="/Logo.svg" alt="Monograma de Edinson Amaya" class="h-28 w-28 sm:h-32 sm:w-32" />
+					<p class="font-display text-ink mt-6 text-lg font-semibold">Edinson Amaya</p>
+					<p class="text-subtle mt-1 text-sm">Full Stack Developer</p>
+				</div>
+
+				<div class="border-line/80 mt-7 grid grid-cols-3 gap-3 border-t pt-6">
+					<div class="text-center">
+						<p class="text-ink font-display text-lg font-semibold">3+</p>
+						<p class="text-subtle text-[11px] tracking-wide uppercase">Proyectos</p>
+					</div>
+					<div class="border-line/80 border-x text-center">
+						<p class="text-ink font-display text-lg font-semibold">Java</p>
+						<p class="text-subtle text-[11px] tracking-wide uppercase">Backend</p>
+					</div>
+					<div class="text-center">
+						<p class="text-ink font-display text-lg font-semibold">ML</p>
+						<p class="text-subtle text-[11px] tracking-wide uppercase">Datos</p>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="border-line-strong bg-surface/90 text-muted absolute -top-4 -left-4 hidden items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium shadow-lg backdrop-blur sm:flex"
+			>
+				<i class="devicon-java-plain colored text-base"></i>
+				Java
+			</div>
+			<div
+				class="border-line-strong bg-surface/90 text-muted absolute -right-4 -bottom-4 hidden items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium shadow-lg backdrop-blur sm:flex"
+			>
+				<i class="devicon-python-plain colored text-base"></i>
+				Python
+			</div>
+		</div>
+	</div>
+</section>
